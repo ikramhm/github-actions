@@ -18,10 +18,10 @@ jobs:
           import platform 
           print
           (platform.processor())
-        shell: python
+        shell: python # you can use difference sripting languages to run commands under specific VMs. For Compatibility: Check https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#using-a-specific-shell for details. need shell: for the python code to run
   run-windwos-commands:
     runs-on: windows-latest
-    needs: ["run-shell-command"]
+    needs: ["run-shell-command"] #this needs commands ensures that jobs take place sequentially, otherwise they run parallel
     steps:
       - name: Directory PowerShell
         run: Get-Location 
